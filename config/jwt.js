@@ -1,0 +1,6 @@
+const { model } = require("mongoose");
+
+const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_EXPIRES_IN = "1h";
+
+module.exports = {JWT_SECRET, JWT_EXPIRES_IN};
