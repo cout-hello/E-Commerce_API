@@ -5,8 +5,8 @@ erDiagram
 USER ||--|| CART : has
 USER ||--o{ ORDER : places
 
-    CART ||--o{ CART_ITEM : contains
-    PRODUCT ||--o{ CART_ITEM : "added to"
+CART ||--o{ CART_ITEM : contains
+PRODUCT ||--o{ CART_ITEM : "added to"
 
     ORDER ||--o{ ORDER_ITEM : contains
     PRODUCT ||--o{ ORDER_ITEM : "ordered as"
