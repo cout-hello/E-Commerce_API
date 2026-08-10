@@ -1,11 +1,11 @@
 require("dotenv").config();
 const { exit } = require("node:process");
-const { Router, app, express } = require("./Routes/web");
+const { router, app, express } = require("./Routes/web");
 const connectDB = require("./config/database");
 const PORT = process.env.PORT;
 
 app.use(express.json());
-app.use("/", Router);
+app.use("/", router);
 
 const startserver = async () => {
   try {
@@ -15,6 +15,7 @@ const startserver = async () => {
       console.log("Server Connected");
     });
   } catch (error) {
+    
     console.log("Failed to start server:", error);
     process.exit("1");
   }

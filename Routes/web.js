@@ -1,11 +1,9 @@
 const express = require("express");
-const Router = express.Router();
+const router = express.Router();
 const app = express();
 
-Router.get("/", () => {
+router.get("/", () => {
   console.log("root path");
 });
 
-
-
-module.exports = { Router, app, express };
+module.exports = { router, app, express };
