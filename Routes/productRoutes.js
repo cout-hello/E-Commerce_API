@@ -2,13 +2,13 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../middleware/authMiddleware");
 
-router.get("/product");
-router.get("/product/:id");
+router.get("/products");
+router.get("/products/:id");
 
-router.post("/product");
+router.post("/products");
 
-router.patch("/product/:id");
+router.patch("/products/:id");
 
-router.delete("product/:id");
+router.delete("/products/:id");
 
 module.exports = router;
