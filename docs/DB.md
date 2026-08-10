@@ -1,3 +1,6 @@
+# Database Design
+
+```mermaid
 erDiagram
 USER ||--|| CART : has
 USER ||--o{ ORDER : places
@@ -57,3 +60,4 @@ USER ||--o{ ORDER : places
         Number price
         Number stock
     }
+```
