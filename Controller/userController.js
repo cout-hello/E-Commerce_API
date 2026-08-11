@@ -11,5 +11,5 @@ const deleteuser = async (req, res, next) => {
   } catch (error) {}
 };
 
-//send without {}, bc its not used like a function
+
 module.exports = {deleteuser};
