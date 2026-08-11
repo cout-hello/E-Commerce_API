@@ -1,17 +1,16 @@
 const usermodel = require("../Models/user");
-const userData = require("../con");
+const userData = require("../Controller/userController");
 
 const deleteuser = async (userId) => {
   try {
-    const user = usermodel.findByIdAndDelete(userId);
-if(!user){
-    throw new Error("user not found");
-}
-return console.log("user deleted");
-
+    const user = await usermodel.findByIdAndDelete(userId);
+    if (!user) {
+      throw new Error("user not found");
+    }
+    return console.log("user deleted");
   } catch (error) {
-
+    return error;
   }
 };
 
-module.exports = {deleteuser};
+module.exports = { deleteuser };
