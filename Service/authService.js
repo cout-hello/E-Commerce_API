@@ -22,13 +22,9 @@ const registerSchema = Jio.object({
 });
 
 const register = async (userData) => {
+  console.log("RESULT:", registerSchema.validate(userData));
 
-console.log(
-    "RESULT:",
-    registerSchema.validate(userData)
-  );
-
-  //const { error, value } = registerSchema.validate(userData);
+  const { error, value } = registerSchema.validate(userData);
   if (error) {
     throw error;
   }
