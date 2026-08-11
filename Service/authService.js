@@ -1,7 +1,7 @@
 // userData its (req.body)
 const Jio = require("joi");
 
-const registerSchrema = Jio.object({
+const registerSchema = Jio.object({
   name: Jio.string()
     .min(3)
     .max(10)
@@ -22,11 +22,16 @@ const registerSchrema = Jio.object({
 });
 
 const register = async (userData) => {
-  const { error, value } = registerSchrema.validate(userData);
 
+console.log(
+    "RESULT:",
+    registerSchema.validate(userData)
+  );
+
+  //const { error, value } = registerSchema.validate(userData);
   if (error) {
     throw error;
   }
 };
 
-module.exports = register;
+module.exports = { register };
