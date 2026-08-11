@@ -8,7 +8,7 @@ const registerSchrema = Jio.object({
     .pattern(/^[A-Za-z]+$/)
     .required(),
   username: Jio.string()
-    .pattern(/^[A-Za-z0-9_]+$/)
+    .pattern(/^[A-Za-z0-9]+$/)
     .min(3)
     .max(10)
     .required(),
