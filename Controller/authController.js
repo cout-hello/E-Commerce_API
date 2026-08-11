@@ -1,6 +1,6 @@
 const authService = require("../Service/authService");
 
-const authregister = async (req, res, next) => {
+const authRegister = async (req, res, next) => {
   try {
     await authService.register(req.body);
     console.log("routes work");
@@ -11,4 +11,4 @@ const authregister = async (req, res, next) => {
   }
 };
 
-module.exports = authregister;
+module.exports = authRegister;

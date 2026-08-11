@@ -1,6 +1,6 @@
 // userData its (req.body)
+const usermodel = require("../Models/user");
 const Joi = require("joi");
-const { error } = require("node:console");
 
 const registerSchema = Joi.object({
   name: Joi.string()
@@ -23,19 +23,18 @@ const registerSchema = Joi.object({
 });
 
 const register = async (userData) => {
-  console.log("USER DATA:", userData);
-  console.log("SCHEMA:", registerSchema);
+  const {error, value} = registerSchema.validate(userData);
+  const existUser = await usermodel.find();
+  console.log(existUser);
 
-  const result = registerSchema.validate(userData);
+  const user = new usermodel(userData);
 
-  console.log("RESULT:", result);
-  console.log("ERROR:", result.error);
-  console.log("VALUE:", result.value);
+  await user.save();
 
   if (error) {
-    console.log(error);
     throw error;
   }
 };
 
+// export the access of the function to use like Object.register();
 module.exports = { register };
