@@ -1,5 +1,6 @@
 // userData its (req.body)
 const Joi = require("joi");
+const { error } = require("node:console");
 
 const registerSchema = Joi.object({
   name: Joi.string()
@@ -32,6 +33,7 @@ const register = async (userData) => {
   console.log("VALUE:", result.value);
 
   if (error) {
+    console.log(error);
     throw error;
   }
 };
