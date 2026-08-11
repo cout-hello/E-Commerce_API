@@ -2,7 +2,9 @@ const usermodel = require("../Models/user");
 
 const deleteuser = async (userId) => {
   try {
+    console.log(userId);
     const user = await usermodel.findByIdAndDelete(userId);
+    console.log("code reatch here");
     if (!user) {
       throw new Error("user not found");
     }
@@ -12,4 +14,4 @@ const deleteuser = async (userId) => {
   }
 };
 
-module.exports = deleteuser ;
+module.exports = deleteuser;

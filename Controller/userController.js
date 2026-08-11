@@ -7,9 +7,9 @@ const deleteuser = async (req, res, next) => {
     if (!user) {
       throw new Error("user not found");
     }
+    
     return res.status(200).json({ message: "user deleted" });
   } catch (error) {}
 };
 
-
-module.exports = {deleteuser};
+module.exports = { deleteuser };
