@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const userspath = "/users"
 const auth = require("../middleware/authMiddleware");
 
 router.get("/users/me");
