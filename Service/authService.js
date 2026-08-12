@@ -24,16 +24,17 @@ const registerSchema = Joi.object({
 
 const register = async (userData) => {
   const {error, value} = registerSchema.validate(userData);
-  const existUser = await usermodel.find();
-  console.log(existUser);
-
-  const user = new usermodel(userData);
-
-  await user.save();
-
   if (error) {
     throw error;
   }
+  const existUser = await usermodel.find();
+  console.log(existUser);
+
+  const user = new usermodel(value);
+
+  await user.save();
+
+  
 };
 
 // export the access of the function to use like Object.register();
