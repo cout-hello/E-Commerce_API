@@ -5,14 +5,16 @@ const deleteuser = async (userId) => {
     //console.log("code reatch here");
     console.log(userId);
     const user = await usermodel.findByIdAndDelete(userId);
-    //console.log("code reatch here");
     if (!user) {
-      throw new Error("user not found");
+      console.log("the user value from return findByIdAndDelete :" + user);
+      return res.status(404).json({ message: "user not found", erroe: error });
     }
     //console.log("user deleted");
   } catch (error) {
-    
+    return res
+      .status(500)
+      .json({ message: "Server error in service", erroe: error });
   }
 };
 
-module.exports = {deleteuser};
+module.exports = { deleteuser };

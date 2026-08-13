@@ -28,10 +28,7 @@ const register = async (userData) => {
     throw error;
   }
   const existUser = await usermodel.find();
-  console.log(existUser);
-
   const user = new usermodel(value);
-
   await user.save();
 
   
