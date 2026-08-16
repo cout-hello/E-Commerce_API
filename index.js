@@ -2,8 +2,8 @@ const express = require("express");
 const app = express();
 
 require("dotenv").config();
-const { router: apiRouter } = require("./app/api/Routes/web");
 const { appRouter } = require("./app/admin/Routes/web");
+const { apiRouter } = require("./app/api/Routes/web");
 const connectDB = require("./app/api/config/database");
 const PORT = process.env.PORT;
 
@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, "Public")));
 
 app.use(express.json());
 app.use("/", appRouter);
-app.use("/", apiRouter);
+app.use("/api", apiRouter);
 
 const startserver = async () => {
   try {

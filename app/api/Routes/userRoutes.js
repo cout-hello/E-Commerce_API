@@ -1,11 +1,11 @@
 const express = require("express");
-const router = express.Router();
-const {deleteuser} = require("../Controller/userController");
+const userRoutes = express.Router();
+const { deleteuser, displayUsers } = require("../Controller/userController");
 const auth = require("../middleware/authMiddleware");
 
 
-router.delete("/users/me", deleteuser);
-router.get("/users", );
+userRoutes.delete("/api/users/me", deleteuser);
+userRoutes.get("/api/users", auth, displayUsers);
 /** router.get("/users/me");
 router.patch("/users/me");
 
@@ -16,4 +16,4 @@ router.patch("/users/:id");
 router.delete("/users/:id");*/
 
 
-module.exports = router;
+module.exports = { userRoutes };

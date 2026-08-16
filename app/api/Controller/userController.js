@@ -23,10 +23,8 @@ const deleteuser = async (req, res, next) => {
 
 const displayUsers = async (req, res, next) => {
   try {
-    return res.status(404).json({
-      message: "there is no code yet displayUsers fun in controller",
-      erroe: error,
-    });
+    const users = await displayUsersService();
+    return res.status(200).json({ users });
   } catch (error) {
     return res
       .status(404)
@@ -34,4 +32,4 @@ const displayUsers = async (req, res, next) => {
   }
 };
 
-module.exports = { deleteuser };
+module.exports = { deleteuser, displayUsers };

@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+const adminProductRoutes = express.Router();
 const {
   getAdminProductsController,
   addAdminProductController,
@@ -7,7 +7,10 @@ const {
   getAdminProductByIdController,
 } = require("../Controller/adminProductController");
 
-router.get("/admin/products", getAdminProductsController);
-router.get("/admin/product_details/:id", getAdminProductByIdController);
+adminProductRoutes.get("/admin/products", getAdminProductsController);
+adminProductRoutes.get(
+  "/admin/product_details/:id",
+  getAdminProductByIdController,
+);
 
-module.exports = router;
+module.exports = { adminProductRoutes };

@@ -1,21 +1,18 @@
 const express = require("express");
-const router = express.Router();
+const apiRouter = express.Router();
 
 const authRoutes = require("./authRoutes");
-const userRoutes = require("./userRoutes");
+const {userRoutes} = require("./userRoutes");
 const productRoutes = require("./productRoutes");
-const adminProductRoutes = require("../../admin/Routes/adminRoutes");
 
-router.use(authRoutes);
-router.use(userRoutes);
-router.use(productRoutes);
-router.use(adminProductRoutes);
+apiRouter.use(authRoutes);
+apiRouter.use(userRoutes);
+apiRouter.use(productRoutes);
 
-
-router.get("/", (req, res) => {
+apiRouter.get("/api", (req, res) => {
   return res.status(200).json({
     message: "root path",
   });
 });
 
-module.exports = { router };
+module.exports = { apiRouter };
