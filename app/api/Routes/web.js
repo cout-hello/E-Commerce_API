@@ -4,7 +4,7 @@ const router = express.Router();
 const authRoutes = require("./authRoutes");
 const userRoutes = require("./userRoutes");
 const productRoutes = require("./productRoutes");
-const adminProductRoutes = require("../app/Routes/adminRoutes");
+const adminProductRoutes = require("../../admin/Routes/adminRoutes");
 
 router.use(authRoutes);
 router.use(userRoutes);

@@ -3,7 +3,7 @@ const {
   addProductService,
   deleteAllProdectService,
   getProductByIdService,
-} = require("../../Service/productService");
+} = require("../../api/Service/productService");
 
 //all users can send req.
 // Req for one product by id

@@ -6,7 +6,7 @@ const adminProductRoutes = require("./adminRoutes");
 appRouter.use(adminProductRoutes);
 
 appRouter.get("/", (req, res) => {
-  return res.status(200).render("Admin/home_page");
+  return res.status(200).render("home_page");
 });
 
 module.exports = { appRouter };
