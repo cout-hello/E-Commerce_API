@@ -1,4 +1,7 @@
-const userservice = require("../Service/userService");
+const {
+  deleteUserByIdService,
+  displayUsersService,
+} = require("../Service/userService");
 
 const deleteuser = async (req, res, next) => {
   try {
@@ -11,6 +14,19 @@ const deleteuser = async (req, res, next) => {
     }
     console.log("code reatch here bafore return deleteuser fun ");
     return res.status(200).json({ message: "user deleted" });
+  } catch (error) {
+    return res
+      .status(404)
+      .json({ message: "Server error in service in controller", erroe: error });
+  }
+};
+
+const displayUsers = async (req, res, next) => {
+  try {
+    return res.status(404).json({
+      message: "there is no code yet displayUsers fun in controller",
+      erroe: error,
+    });
   } catch (error) {
     return res
       .status(404)
