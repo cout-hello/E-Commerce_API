@@ -4,16 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product Details — Admin Panel</title>
-  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body data-page="product-details">
 
   <div class="app-layout">
 
-    <!-- ==================================================================
-         Sidebar (identical to products.html)
-         Future EJS partial: partials/sidebar.ejs
-         ================================================================== -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-brand">
         <span class="brand-mark">A</span>
@@ -21,7 +17,7 @@
       </div>
 
       <nav class="sidebar-nav">
-        <a href="products.html" class="nav-link active">
+        <a href="/products" class="nav-link active">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
             <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
@@ -44,11 +40,6 @@
     </aside>
 
     <div class="main-wrapper">
-
-      <!-- ================================================================
-           Topbar (identical to products.html)
-           Future EJS partial: partials/topbar.ejs
-           ================================================================ -->
       <header class="topbar">
         <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle menu">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -64,7 +55,7 @@
 
         <div class="page-header">
           <div>
-            <a href="products.html" class="back-link">
+            <a href="/admin/products" class="back-link">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
@@ -81,64 +72,40 @@
           </div>
         </div>
 
-        <!--
-          Future EJS note:
-          Every value below is populated by app.js at runtime by looking up
-          the ?id= query param against a PRODUCTS array (standing in for a
-          database). Once converted to EJS, this whole lookup happens on
-          the server instead, and each element below just becomes:
-            <span class="detail-value"><%= product.name %></span>
-          The id="..." attributes and app.js population logic can then be
-          removed.
-        -->
         <div class="details-layout">
 
           <div class="details-card">
             <div class="detail-row">
               <span class="detail-label">Product ID</span>
-              <span class="detail-value" id="productId">P001</span>
+              <span class="detail-value" id="productId"><%=product.id%></span>
             </div>
 
             <div class="detail-row">
               <span class="detail-label">Product Name</span>
-              <span class="detail-value" id="productName">Wireless Bluetooth Headphones</span>
+              <span class="detail-value" id="productName"><%=product.name%></span>
             </div>
 
             <div class="detail-row">
               <span class="detail-label">Price</span>
-              <span class="detail-value" id="productPrice">$79.99</span>
-            </div>
-
-            <div class="detail-row">
-              <span class="detail-label">Category</span>
-              <span class="detail-value" id="productCategory">Electronics</span>
+              <span class="detail-value" id="productPrice"><%=product.price%></span>
             </div>
 
             <div class="detail-row">
               <span class="detail-label">Stock</span>
               <span class="detail-value">
-                <span id="productStockNum">34</span>
+                <span id="productStockNum"><%=product.stock%></span>
                 <span class="badge badge-success" id="productStockBadge">In Stock</span>
               </span>
             </div>
 
+            <!--
             <div class="detail-row detail-row-block">
               <span class="detail-label">Description</span>
               <p class="detail-value" id="productDescription">
                 Over-ear wireless headphones with active noise cancellation, 30-hour battery life, and a foldable design for easy travel.
               </p>
             </div>
-
-            <div class="detail-row">
-              <span class="detail-label">Created At</span>
-              <span class="detail-value" id="productCreatedAt">2024-11-02</span>
-            </div>
-
-            <div class="detail-row">
-              <span class="detail-label">Updated At</span>
-              <span class="detail-value" id="productUpdatedAt">2025-01-15</span>
-            </div>
-          </div>
+            _->
 
           <!-- Secondary image area -->
           <div class="details-image-card">

@@ -4,7 +4,10 @@ const {
   deleteAllProdectService,
 } = require("../Service/productService");
 
+
+
 //all users can send req.
+// Req for all products
 const getProductsController = async (req, res, next) => {
   try {
     const productList = await getProductsService();
@@ -22,6 +25,7 @@ const getProductsController = async (req, res, next) => {
   deletedCount: 0 --> i send this directly
 }
 */
+// req for delete all product
 const deleteallProductController = async (req, res, next) => {
   try {
     const deleteResult = await deleteAllProdectService();
@@ -45,6 +49,8 @@ const addProductController = async (req, res, next) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+
 
 module.exports = {
   getProductsController,

@@ -2,20 +2,22 @@ const express = require("express");
 const app = express();
 
 require("dotenv").config();
-const { router } = require("./Routes/web");
+const { router:apiRouter } = require("./Routes/web");
+const { appRouter } = require("./app/Routes/web");
 const connectDB = require("./config/database");
 const PORT = process.env.PORT;
 
 //hey Expresss, when i use res.render() use EJS to convert template to html
 app.set("view engine", "ejs");
 // hey Express, all EJS files its inside the /views folder 
-app.set("views", "./views");
+app.set("views", "./app/views");
+
+const path = require("path");
+app.use(express.static(path.join(__dirname, "app/Public")));
 
 app.use(express.json());
-app.use("/", router);
-app.get("/products", (req, res) => {
-  res.render("products_list");
-});
+app.use("/", appRouter);
+app.use("/", apiRouter);
 
 const startserver = async () => {
   try {

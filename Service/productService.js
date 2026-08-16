@@ -3,14 +3,20 @@ const { productmodel } = require("../Models/product");
 //later add joi lib for verification
 //const Joi = require("joi");
 
+// get all products
 const getProductsService = async () => {
   const productList = await productmodel.find();
 
-  if (productList.length === 0) {
-    return "no product found";
-  }
-
   return productList;
+};
+
+// get one product by id
+const getProductByIdService = async (productId) => {
+  const product = await productmodel.findById(productId);
+   if(!product){
+    return {message: "product not found"};
+   }
+  return product;
 };
 
 //need to check from data before add to DB
@@ -33,4 +39,5 @@ module.exports = {
   getProductsService,
   addProductService,
   deleteAllProdectService,
+  getProductByIdService,
 };
